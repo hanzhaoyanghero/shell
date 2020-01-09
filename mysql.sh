@@ -1,5 +1,5 @@
 #mysql正在running的线程数(排除了sleep的)
-mysqlRunID=$(mysql -uagency -pagency -P3306 -BNe "select count(*)from information_schema.processlist where info is not null;")
+mysqlRunID=$(mysql -u** -p*** -P3306 -BNe "select count(*)from information_schema.processlist where info is not null;")
 echo "mysql正在running的线程数为$mysqlRunID"
 #Mysql的全部线程
 mysqlID=$(mysql -uagency -pagency -P3306 -BNe "select count(*)from information_schema.processlist;")
@@ -19,7 +19,7 @@ echo "[info]开始监控,mysql...[$(date +'%F %H:%M:%S')]"
 	 echo "[info]当前mysql的进程数为$mysqlID"
 	 echo "[error]发送告警开启邮件"  
 	 # | mail -s mail命令一定要有空格
-	 echo "$IP的mysql线程数已经超过60，发送告警开启邮件 [$(date +'%F %H:%M:%S')],mysql的全部线程数为$mysqlID,mysql正在running的线程数为$mysqlRunID" | mail -s "魔售mysql报警开启" $email_address
+	 echo "$IP的mysql线程数已经超过60，发送告警开启邮件 [$(date +'%F %H:%M:%S')],mysql的全部线程数为$mysqlID,mysql正在running的线程数为$mysqlRunID" | mail -s "mysql报警开启" $email_address
 	fi
 	 echo "------------------------------"
 
