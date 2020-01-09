@@ -1,5 +1,5 @@
 #定义要监控的页面地址
-WebUrl=10.10.115.151:8080
+WebUrl=当前服务器ip:端口号
 # 日志输出
 GetPageInfo=/tmp/TomcatMonitor.Info
 TomcatMonitorLog=/tmp/TomcatMonitor.log
@@ -8,7 +8,7 @@ TomcatMonitorLog=/tmp/TomcatMonitor.log
 TomcatID=$(ps -ef |grep tomcat |grep -v grep | awk '{print $2}')
 TomcatServiceCode=`curl -o /dev/null -s -w "%{http_code}" "${WebUrl}"`
 #发送邮件地址
-email_address=499573899@qq.com
+email_address=****@qq.com
 #当前服务器ip
 IP=$(ifconfig -a|awk '/(cast)/ {print $2}'|cut -d':' -f2|head -1)
 

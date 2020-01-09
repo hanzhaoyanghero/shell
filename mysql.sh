@@ -5,7 +5,7 @@ echo "mysql正在running的线程数为$mysqlRunID"
 mysqlID=$(mysql -uagency -pagency -P3306 -BNe "select count(*)from information_schema.processlist;")
 echo "mysql的全部线程数为$mysqlID"
 #发送邮件地址
-email_address=499573899@qq.com
+email_address=*****@qq.com
 #当前服务器ip
 IP=$(ifconfig -a|awk '/(cast)/ {print $2}'|cut -d':' -f2|head -1)
 #日志输出
